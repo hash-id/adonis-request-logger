@@ -19,4 +19,4 @@ class RequestLoggerProvider extends ServiceProvider {
   }
 }
 
-module.exports = SentryProvider;
+module.exports = RequestLoggerProvider;
