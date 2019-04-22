@@ -13,9 +13,9 @@ const globalMiddleware = {
   ...,
   'Adonis/Middleware/RequestLogger'
 }
+```
 
 ## Usage
 
 All request and response will be logged, as seen in your console.
 You can exclude certain url route or mark several http codes as normal by adjusting the configuration in `config/requestLogger.js`
-```
