@@ -5,9 +5,7 @@ const serializeError = require("serialize-error");
 
 class RequestLogger {
   constructor(config) {
-    this._normalCode = config
-      .get("requestLogger.normalCode", [200])
-      .map(x => x.toString());
+    this._normalCode = config.get("requestLogger.normalCode", [200]);
   }
 
   /**
