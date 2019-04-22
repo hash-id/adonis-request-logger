@@ -8,10 +8,10 @@ Adonis-Request-Logger is a middleware provider for logging incoming requests and
 
 The setup process is simple like any other provider for AdonisJs.
 
-#### Install Via Github
+#### Install Via NPM
 
 ```bash
-adonis install hash-id/adonis-request-logger
+adonis install adonis-request-logger
 ```
 
 Please follow `instructions.md` for usage details
