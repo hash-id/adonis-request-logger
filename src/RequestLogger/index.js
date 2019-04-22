@@ -35,7 +35,7 @@ class RequestLogger {
       const elapsedMs = prettyMs((diffTime[0] * 1e9 + diffTime[1]) / 1e6);
       const statusCode = response.response.statusCode;
       const { content } = response.lazyBody;
-      const isContentObject = typeof content === "object";
+      const isContentObject = typeof content === "object" && content !== null;
       const isContentError =
         content instanceof Error ||
         (isContentObject && content.errno && content.syscall);
