@@ -20,5 +20,9 @@ module.exports = {
   /**
    * exclude following routes from being logged
    */
-  exclude: ["/assets/*"]
+  exclude: ["/assets/*"],
+  /**
+   * list of tracked request headers
+   */
+  requestHeaders: ["User-Agent"]
 };
