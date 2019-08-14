@@ -6,6 +6,7 @@ const serializeError = require("serialize-error");
 class RequestLogger {
   constructor(config) {
     this._normalCode = config.get("requestLogger.normalCode", [200]);
+    this._reqHeaders = config.get("requestLogger.requestHeaders", []);
   }
 
   /**
@@ -23,8 +24,16 @@ class RequestLogger {
     const method = request.method();
     const ip = request.ip();
     const beginTime = process.hrtime();
+    // grab headers
+    const headers = this._reqHeaders.reduce((collection, headerName) => {
+      collection[headerName] = request.header(headerName);
+      return collection;
+    }, {});
     // log incoming
-    Logger.info(`${reqLabel} <-- ${method} ${url} ${ip}`, request.post());
+    Logger.info(`${reqLabel} <-- ${method} ${url} ${ip}`, {
+      headers,
+      postBody: request.post()
+    });
     // await for request handling to be done
     await next();
     // request handled
